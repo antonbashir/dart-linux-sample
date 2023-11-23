@@ -75,4 +75,4 @@ perf.data.old
 perf.data
 perf.svg
 .dart_tool
-!dart/native/libinteractor.so
+!dart/native/libsample.so
