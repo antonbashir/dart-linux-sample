@@ -1,0 +1,41 @@
+name: linux_interactor_test
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dev_dependencies:
+  ffigen: ^9.0.1
+
+dependencies:
+  ffi: ^2.1.0
+  test: ^1.22.0
+  linux_interactor:
+    git:
+      url: https://github.com/antonbashir/dart-linux-interactor
+      path: dart
+
+ffigen:
+  name: "SampleBindings"
+  description: "Bindings for Linux Interactor sample"
+  output: "lib/bindings.dart"
+  type-map:
+    typedefs:
+      "interactor_message_t":
+        lib: "linux_interactor"
+        c-type: "interactor_message_t"
+        dart-type: "interactor_message_t"
+      "interactor_native_t":
+        lib: "linux_interactor"
+        c-type: "interactor_native_t"
+        dart-type: "interactor_native_t"
+  library-imports:
+    linux_interactor: package:linux_interactor/interactor/bindings.dart
+  functions:
+    symbol-address:
+      include:
+        - ".*"
+  headers:
+    entry-points:
+      - "../native/sample.h"
