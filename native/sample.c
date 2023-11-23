@@ -38,5 +38,6 @@ void sample_call_dart(interactor_message_t* message)
 bool sample_check_dart(interactor_native_t* interactor)
 {
     interactor_native_process_timeout(interactor);
+    interactor_native_submit(interactor);
     return done;
 }

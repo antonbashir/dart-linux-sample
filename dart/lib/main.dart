@@ -28,7 +28,9 @@ Future<void> main(List<String> args) async {
       ..allocateOutputString(64)
       ..setInputString("I am Dart"),
   );
-  while (!bindings.sample_check_dart(native)) {}
+  while (!bindings.sample_check_dart(native)) {
+    await Future.delayed(Duration.zero);
+  }
   final result = await future;
   print(result.outputString);
   result.releaseInputString();
