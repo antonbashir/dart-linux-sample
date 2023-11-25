@@ -6,11 +6,11 @@ import 'package:linux_interactor_test/bindings.dart';
 
 late final bindings = SampleBindings(DynamicLibrary.open("native/libsample.so"));
 
-class SampleProducer implements NativeProducer {
-  late final NativeMethodExecutor sampleCallDart;
+class SampleProducer implements InteractorProducer {
+  late final InteractorMethodExecutor sampleCallDart;
 
   @override
-  void initialize(NativeProducerExecutor executor) {
+  void initialize(InteractorProducerExecutor executor) {
     sampleCallDart = executor.register(bindings.addresses.sample_call_dart);
   }
 }
@@ -32,7 +32,7 @@ Future<void> main(List<String> args) async {
     await Future.delayed(Duration.zero);
   }
   final result = await future;
-  print(result.outputString);
+  print(result.getOutputString());
   result.releaseInputString();
   result.releaseOutputString();
   result.release();
