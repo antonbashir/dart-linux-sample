@@ -158,7 +158,7 @@ packages:
     description:
       path: dart
       ref: HEAD
-      resolved-ref: "937b04d4f2c34e6fac0e92355e56ad78f25485ab"
+      resolved-ref: f677fe5dfe3b8326e09a76d2893f1cd96a320ac8
       url: "https://github.com/antonbashir/dart-linux-interactor"
     source: git
     version: "1.0.0"

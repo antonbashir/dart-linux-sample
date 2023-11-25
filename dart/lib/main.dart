@@ -1,16 +1,15 @@
 import 'dart:ffi';
 
-import 'package:linux_interactor/interactor/producer.dart';
 import 'package:linux_interactor/linux_interactor.dart';
 import 'package:linux_interactor_test/bindings.dart';
 
 late final bindings = SampleBindings(DynamicLibrary.open("native/libsample.so"));
 
 class SampleProducer implements InteractorProducer {
-  late final InteractorMethodExecutor sampleCallDart;
+  late final InteractorMethod sampleCallDart;
 
   @override
-  void initialize(InteractorProducerExecutor executor) {
+  void initialize(InteractorProducerRegistrat executor) {
     sampleCallDart = executor.register(bindings.addresses.sample_call_dart);
   }
 }
