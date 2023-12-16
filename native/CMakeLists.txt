@@ -23,10 +23,11 @@ execute_process(
 )
 cmake_path(GET INTERACTOR_PATH PARENT_PATH INTERACTOR_DIRECTORY)
 string(REPLACE "\n" "" INTERACTOR_PATH_TRIMMED "${INTERACTOR_PATH}")
+set(INTERACTOR_INCLUDE_DIRECTORY ${INTERACTOR_DIRECTORY}/../../native/include)
 
 include_directories(${PROJECT_BINARY_DIR})
 include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${INTERACTOR_DIRECTORY}/../../native/include)
+include_directories(${INTERACTOR_INCLUDE_DIRECTORY})
 
 add_library(sample_native SHARED ${sources})
 target_link_libraries(sample_native PRIVATE "${INTERACTOR_PATH_TRIMMED}")
